@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>
+            TO-DO LIST
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href= "todolist.css">
+        <script src="https://kit.fontawesome.com/2570b77c47.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <div class="bg">
+        <img src="bg.jpeg">
+        </div>
+
+        <section>
+       
+            <h1>TO-DO LIST</h1>
+
+            <input class="input" type ="text" id="task" placeholder="ENTER TASK" onchange= "myFunction();">
+            <br>
+            <br>
+
+            <button class="button" type="submit" id="btn1" >ADD TASK</button>
+            <br>
+            <br>
+
+            <hr>
+            <h1>TASKS</h1>
+       
+            <div id="container"> </div>
+            <br>
+            <br>
+
+            <button class="button" id="clear" onclick="delTasks();"> CLEAR ALL </button>
+
+
+        </section>
+
+    </body>
+
+</html>
+
+
+    <script type="text/javascript">
+
+
+//variable declaration
+
+     var toDoBtn =document.getElementById("btn1");
+     var toDo =document.getElementById("container");
+     var tas =document.getElementById("task");
+     
+
+//functioon to change input to upper case 
+
+    function myFunction() {
+
+        var x = document.getElementById("task");
+        x.value = x.value.toUpperCase();
+    }
+
+// function to delete all tasks
+
+    function delTasks(){
+
+        if (confirm("ARE YOU SURE YOU WANT TO DELETE ALL THE TASKS?")) 
+        {
+            document.getElementById("container").innerHTML = null;
+            txt= "You deleted all your tasks";
+        }
+        
+        else {
+
+            txt="No tasks deleted";
+        }
+
+       
+        setTimeout(function() {alert(txt);},16);   
+        
+    }
+    
+     
+    //fuction to display the added tasks
+    toDoBtn.addEventListener('click', function(){
+
+        var list = document.createElement('li');
+        list.setAttribute("class", "list1");
+        
+        /*var button = document.createElement('button'); 
+        button.setAttribute("class", " list1");
+        button.setAttribute("class", " remove");
+
+       
+        
+       /* var icon = document.createElement('a');
+        icon.setAttribute("class", "fas fa-times"); 
+        icon.setAttribute("id", "cross");
+
+
+        /*icon.addEventListener('click',function remove(){
+
+            if (confirm("ARE YOU SURE YOU WANT TO DELETE THIS TASK?")) 
+        {
+            document.getElementById("list1").innerHTML = null;
+            alert( "You deleted all your tasks");
+        }*/
+
+        list.innerHTML = tas.value;
+        toDo.appendChild(list); 
+       /* toDo.appendChild(button);
+        /*toDo.appendChild(icon);*/
+        
+
+    })
+    
+
+    
+    </script>
+
+
+
+    
+
+    
+    
